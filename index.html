@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steve Jobs | Visionary Experience</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        apple: {
+                            bg: '#000000',
+                            card: '#161617',
+                            cardHover: '#1d1d1f',
+                            text: '#f5f5f7',
+                            subtext: '#86868b',
+                            accent: '#2997ff',
+                            gold: '#f5c518',
+                            border: '#333336'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', 'Helvetica Neue', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { filter: 'drop-shadow(0 0 15px rgba(41, 151, 255, 0.2))' },
+                            '100%': { filter: 'drop-shadow(0 0 35px rgba(41, 151, 255, 0.6))' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti for Quiz completion -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .glass-card {
+            background: rgba(22, 22, 23, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(180deg, #FFFFFF 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .badge-glow {
+            box-shadow: 0 0 20px rgba(41, 151, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-apple-bg text-apple-text font-sans antialiased selection:bg-apple-accent selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-white/10 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="#hero" class="flex items-center gap-2 font-semibold text-lg hover:opacity-80 transition-opacity">
+                <i class="fa-brands fa-apple text-xl"></i>
+                <span class="tracking-tight">Steve Jobs</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-apple-subtext">
+                <a href="#hero" class="hover:text-apple-text transition-colors">Home</a>
+                <a href="#timeline" class="hover:text-apple-text transition-colors">Life Story</a>
+                <a href="#poll" class="hover:text-apple-text transition-colors">Inventions Poll</a>
+                <a href="#quotes" class="hover:text-apple-text transition-colors">Quotes</a>
+                <a href="#quiz" class="hover:text-apple-text transition-colors">Quiz</a>
+            </div>
+            <a href="#quiz" class="text-xs font-semibold px-4 py-1.5 rounded-full bg-apple-accent hover:bg-blue-600 text-white transition-all transform hover:scale-105 shadow-lg shadow-blue-500/20">
+                Take Quiz
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center z-10 flex flex-col items-center">
+            
+            <!-- Featured Keynote Photo Avatar -->
+            <div class="relative mb-8 group">
+                <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-50 blur group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
+                <div class="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl bg-black">
+                    <img src="1000051957.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=800&q=80';" alt="Steve Jobs Keynote Stage Presentation" class="w-full h-full object-cover object-top transform group-hover:scale-105 transition duration-500">
+                </div>
+            </div>
+
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 glass-card mb-6 animate-pulse-slow">
+                <span class="w-2 h-2 rounded-full bg-apple-accent"></span>
+                <span class="text-xs uppercase tracking-widest text-apple-subtext">1955 – 2011</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gradient mb-6 leading-none">
+                Stay Hungry.<br>Stay Foolish.
+            </h1>
+            
+            <p class="text-lg md:text-2xl text-apple-subtext font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                Discover the story of Steve Jobs. Learn how his passion, design ideas, and big dreams changed technology and our everyday lives forever.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#timeline" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-black font-semibold text-sm hover:bg-gray-200 transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-xl">
+                    <span>Read His Life Story</span>
+                    <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+                <a href="#quiz" class="w-full sm:w-auto px-8 py-3.5 rounded-full glass-card text-apple-text font-semibold text-sm hover:bg-white/10 transition-all border border-white/10">
+                    Test Your Knowledge
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+            <span class="text-[10px] uppercase tracking-widest text-apple-subtext">Scroll</span>
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+        </div>
+    </section>
+
+    <!-- Detailed Timeline Section -->
+    <section id="timeline" class="py-24 max-w-6xl mx-auto px-6 relative">
+        <div class="text-center mb-16">
+            <h2 class="text-xs font-bold text-apple-accent tracking-widest uppercase mb-2">Life Journey</h2>
+            <h3 class="text-3xl md:text-5xl font-bold text-gradient">The History of Steve Jobs</h3>
+            <p class="text-apple-subtext mt-4 max-w-xl mx-auto">Click any card below to read more details about each chapter of his amazing life.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="timelineGrid">
+            <!-- Dynamic Cards Injected via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Modal for Detailed Timeline View -->
+    <div id="detailModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="glass-card max-w-2xl w-full rounded-2xl p-6 md:p-8 relative transform scale-95 transition-transform duration-300 border border-white/20 overflow-hidden">
+            <button id="closeModal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <span id="modalYear" class="text-xs font-extrabold px-3 py-1 rounded-full bg-apple-accent text-white"></span>
+                <span id="modalTagline" class="text-xs text-apple-subtext uppercase tracking-wider font-semibold"></span>
+            </div>
+
+            <h3 id="modalTitle" class="text-2xl md:text-3xl font-bold text-white mb-4"></h3>
+
+            <div class="rounded-xl overflow-hidden mb-6 h-56 md:h-64 bg-black/50 relative border border-white/10">
+                <img id="modalImg" src="" alt="" class="w-full h-full object-cover">
+            </div>
+
+            <p id="modalDesc" class="text-apple-subtext leading-relaxed mb-6 text-sm md:text-base"></p>
+
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10 italic text-sm text-gray-300 flex items-start gap-3">
+                <i class="fa-solid fa-quote-left text-apple-accent mt-1"></i>
+                <span id="modalQuote"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Poll Section -->
+    <section id="poll" class="py-20 bg-apple-card/20 border-y border-white/5 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-xs font-bold text-apple-accent tracking-widest uppercase mb-2">Interactive Question</h2>
+                <h3 class="text-3xl font-bold text-gradient">Which Innovation Changed Your Life Most?</h3>
+                <p class="text-apple-subtext text-sm mt-2">Vote for your favorite Steve Jobs creation to see what others think!</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4" id="pollOptions">
+                <!-- Injected via JS -->
+            </div>
+            
+            <p id="pollThankYou" class="hidden text-center text-xs text-green-400 font-semibold mt-6">
+                <i class="fa-solid fa-circle-check"></i> Thank you for voting!
+            </p>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section id="quotes" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-xs font-bold text-apple-accent tracking-widest uppercase mb-2">Words of Wisdom</h2>
+            <h3 class="text-3xl md:text-4xl font-bold text-gradient mb-12">Famous Quotes</h3>
+
+            <div class="glass-card p-8 md:p-12 rounded-3xl border border-white/10 relative shadow-2xl transition-all duration-500" id="quoteCard">
+                <div class="text-4xl text-apple-accent opacity-50 mb-4">
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+                
+                <p id="quoteText" class="text-xl md:text-2xl font-light text-white leading-relaxed mb-8 transition-opacity duration-300 min-h-[100px] flex items-center justify-center">
+                    "Your time is limited, so don't waste it living someone else's life."
+                </p>
+
+                <div class="flex items-center justify-between border-t border-white/10 pt-6">
+                    <div class="text-left">
+                        <p class="font-semibold text-white text-sm">Steve Jobs</p>
+                        <p id="quoteContext" class="text-xs text-apple-subtext">Speech at Stanford University, 2005</p>
+                    </div>
+
+                    <button id="nextQuoteBtn" class="px-5 py-2.5 rounded-full bg-apple-accent text-white text-xs font-semibold hover:bg-blue-600 transition-all flex items-center gap-2 transform active:scale-95 shadow-lg shadow-blue-500/20">
+                        <span>Read Another Quote</span>
+                        <i class="fa-solid fa-rotate text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="py-24 max-w-4xl mx-auto px-6 relative">
+        <div class="text-center mb-12">
+            <h2 class="text-xs font-bold text-apple-accent tracking-widest uppercase mb-2">Interactive Quiz</h2>
+            <h3 class="text-3xl md:text-5xl font-bold text-gradient">Test Your Knowledge</h3>
+            <p class="text-apple-subtext text-sm mt-2">Answer these 5 simple questions to see how well you know Steve Jobs.</p>
+        </div>
+
+        <div class="glass-card rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl relative overflow-hidden" id="quizContainer">
+            <div class="w-full bg-white/10 h-1.5 rounded-full mb-8 overflow-hidden">
+                <div id="quizProgressBar" class="bg-apple-accent h-full w-0 transition-all duration-500"></div>
+            </div>
+
+            <div id="quizQuestionView">
+                <div class="flex justify-between items-center text-xs text-apple-subtext mb-4">
+                    <span id="questionNum">Question 1 of 5</span>
+                    <span id="scoreDisplay">Score: 0</span>
+                </div>
+
+                <h4 id="questionText" class="text-xl md:text-2xl font-semibold text-white mb-8"></h4>
+
+                <div id="optionsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <!-- Answer Buttons -->
+                </div>
+
+                <div id="feedbackBox" class="hidden p-4 rounded-xl mb-6 text-sm flex items-center gap-3"></div>
+
+                <div class="flex justify-end">
+                    <button id="nextQuestionBtn" class="hidden px-6 py-2.5 rounded-full bg-white text-black font-semibold text-xs hover:bg-gray-200 transition-all flex items-center gap-2">
+                        <span>Next Question</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="quizResultView" class="hidden text-center py-8">
+                <div class="w-20 h-20 rounded-full bg-apple-accent/20 border border-apple-accent flex items-center justify-center mx-auto mb-6 text-3xl text-apple-accent">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h4 class="text-3xl font-bold text-white mb-2">Great Job!</h4>
+                <p id="resultFeedback" class="text-apple-subtext mb-6 text-sm"></p>
+                <div class="text-5xl font-extrabold text-gradient mb-8" id="finalScoreText">0/5</div>
+
+                <button id="restartQuizBtn" class="px-8 py-3 rounded-full bg-apple-accent text-white font-semibold text-sm hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
+                    Try Quiz Again
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Prominent 'Made by Era' Badge -->
+    <footer class="py-12 border-t border-white/10 text-center text-xs text-apple-subtext relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center justify-center gap-6">
+            <div class="flex items-center gap-2 text-white font-medium text-sm">
+                <i class="fa-brands fa-apple text-lg"></i>
+                <span>Steve Jobs Tribute Page</span>
+            </div>
+
+            <!-- Prominent Badge -->
+            <div class="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600/30 via-purple-600/30 to-blue-600/30 border border-apple-accent/50 badge-glow">
+                <span class="text-gray-300 text-xs uppercase tracking-wider">Designed & Built</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-apple-accent animate-ping"></span>
+                <span class="text-white font-bold text-sm tracking-wide">Made by Era</span>
+            </div>
+
+            <p class="text-apple-subtext max-w-md">"The people who are crazy enough to think they can change the world are the ones who do."</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Sound feedback function
+        const playSound = (freq = 600, duration = 0.05, type = 'sine') => {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, ctx.currentTime);
+                gain.gain.setValueAtTime(0.05, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.00001, ctx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + duration);
+            } catch (e) {}
+        };
+
+        // B1-B2 Level Detailed History Timeline
+        const timelineData = [
+            {
+                year: "1955–1976",
+                title: "Early Life & Apple's Start",
+                tagline: "The Garage Days",
+                desc: "Steve Jobs was born in San Francisco in 1955. He was adopted by Paul and Clara Jobs and grew up in Silicon Valley. As a teenager, he loved electronics and met Steve Wozniak. In 1976, they founded Apple Computer in Jobs's family garage. Together, they built the Apple I and the Apple II, which became one of the first popular personal computers.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Steve_Jobs_in_1969_Pegasus.jpg",
+                quote: "We built the computer because we wanted one ourselves."
+            },
+            {
+                year: "1984–1985",
+                title: "Macintosh & Leaving Apple",
+                tagline: "A Graphical Revolution",
+                desc: "In 1984, Steve Jobs launched the Macintosh computer with a famous TV commercial. The Macintosh was special because it used a mouse and icons instead of complex typed commands. However, due to arguments with CEO John Sculley and disagreement with the board of directors, Jobs left Apple in 1985.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Steve_Jobs_Headshot_2010-CROP2.jpg",
+                quote: "It is better to be a pirate than to join the navy."
+            },
+            {
+                year: "1985–1996",
+                title: "NeXT & Pixar Success",
+                tagline: "Building Dreams Away from Apple",
+                desc: "After leaving Apple, Jobs started NeXT Computer to build advanced computers for universities. In 1986, he bought a small animation group from George Lucas and named it Pixar. Pixar made history in 1995 by creating Toy Story, the first full 3D computer-animated movie. Pixar made Jobs a billionaire.",
+                img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
+                quote: "If you keep your eye on the profit, you will skimp on the product."
+            },
+            {
+                year: "1997–2001",
+                title: "Return to Apple & iPod",
+                tagline: "Think Different Era",
+                desc: "In 1997, Apple bought NeXT, and Steve Jobs returned to save Apple from bankruptcy. He created the famous 'Think Different' ad campaign and launched the colorful iMac G3. In 2001, Apple introduced the iPod, letting people store 1,000 songs right in their pocket.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Steve_Jobs.jpg",
+                quote: "Design is not just what it looks like. Design is how it works."
+            },
+            {
+                year: "2007",
+                title: "The iPhone Launch",
+                tagline: "Reinventing the Smartphone",
+                desc: "In January 2007, Jobs announced the iPhone wearing his signature black turtleneck and jeans on stage. He described it as three devices in one: a touchscreen iPod, a mobile phone, and a breakthrough internet communicator. The iPhone changed the mobile industry and how people connect globally.",
+                img: "1000051957.jpg",
+                quote: "An iPod, a phone, an internet communicator... these are not three separate devices!"
+            },
+            {
+                year: "2010–2011",
+                title: "iPad & Lasting Legacy",
+                tagline: "A World Changed Forever",
+                desc: "In 2010, Jobs launched the iPad, creating a brand new category of tablet computers. Steve Jobs passed away in October 2011 at age 56. His vision of combining simple software, elegant hardware, and modern design continues to inspire millions of people around the world.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Steve_Jobs_WWDC07.jpg",
+                quote: "Stay hungry. Stay foolish."
+            }
+        ];
+
+        // Quotes Data in B1-B2 friendly style
+        const quotesData = [
+            { text: "Your time is limited, so don't waste it living someone else's life.", context: "Speech at Stanford University, 2005" },
+            { text: "The people who are crazy enough to think they can change the world are the ones who do.", context: "Apple 'Think Different' Campaign, 1997" },
+            { text: "Design is not just what it looks like and feels like. Design is how it works.", context: "Interview with New York Times, 2003" },
+            { text: "Stay hungry. Stay foolish.", context: "Stanford Graduation Speech, 2005" },
+            { text: "Innovation distinguishes between a leader and a follower.", context: "Business Statement" },
+            { text: "I want to put a ding in the universe.", context: "Early Silicon Valley Interview" }
+        ];
+
+        // Quiz Data in B1-B2 level English
+        const quizData = [
+            {
+                question: "In which year was the first Apple iPhone presented by Steve Jobs?",
+                options: ["2001", "2007", "2010", "1997"],
+                answer: 1,
+                explanation: "Steve Jobs introduced the first iPhone on January 9, 2007."
+            },
+            {
+                question: "Where did Steve Jobs and Steve Wozniak build the first Apple computers?",
+                options: ["In a university computer lab", "In a garage", "In a large electronics shop", "In a basement office"],
+                answer: 1,
+                explanation: "They started Apple in the garage of Jobs's childhood home in 1976."
+            },
+            {
+                question: "Which famous animation studio created 'Toy Story' under Steve Jobs's leadership?",
+                options: ["Pixar", "DreamWorks", "Disney", "Warner Bros"],
+                answer: 0,
+                explanation: "Steve Jobs bought Pixar in 1986, which released Toy Story in 1995."
+            },
+            {
+                question: "What was the name of the computer company Steve Jobs started after leaving Apple in 1985?",
+                options: ["Atari", "Dell", "NeXT", "Microsoft"],
+                answer: 2,
+                explanation: "Jobs created NeXT, which Apple later bought in 1997 to bring him back."
+            },
+            {
+                question: "What product introduced in 2001 allowed people to carry '1,000 songs in their pocket'?",
+                options: ["iMac", "iPad", "iPhone", "iPod"],
+                answer: 3,
+                explanation: "The iPod changed how people listened to music everywhere."
+            }
+        ];
+
+        // Render Timeline
+        const renderTimeline = () => {
+            const grid = document.getElementById('timelineGrid');
+            grid.innerHTML = timelineData.map((item, index) => `
+                <div onclick="openModal(${index})" class="glass-card rounded-2xl overflow-hidden cursor-pointer group hover:border-apple-accent/50 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-4 text-xs font-extrabold px-3 py-1 rounded-full bg-apple-accent text-white backdrop-blur-md">
+                            ${item.year}
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-1 group-hover:text-apple-accent transition-colors">${item.title}</h4>
+                        <p class="text-xs text-apple-subtext font-medium mb-3">${item.tagline}</p>
+                        <p class="text-sm text-gray-400 line-clamp-3">${item.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        };
+
+        // Render Interactive Poll Options
+        const pollItems = [
+            { name: "Apple II Computer", icon: "fa-desktop", votes: 120 },
+            { name: "Macintosh (1984)", icon: "fa-display", votes: 310 },
+            { name: "iPod & iTunes", icon: "fa-music", votes: 450 },
+            { name: "iPhone", icon: "fa-mobile-screen-button", votes: 980 }
+        ];
+
+        let voted = false;
+        const renderPoll = () => {
+            const pollContainer = document.getElementById('pollOptions');
+            const totalVotes = pollItems.reduce((acc, curr) => acc + curr.votes, 0);
+
+            pollContainer.innerHTML = pollItems.map((item, idx) => {
+                const percent = Math.round((item.votes / totalVotes) * 100);
+                return `
+                    <button onclick="votePoll(${idx})" ${voted ? 'disabled' : ''} class="glass-card p-5 rounded-2xl text-center border border-white/10 hover:border-apple-accent transition-all duration-300 relative overflow-hidden group">
+                        ${voted ? `<div class="absolute bottom-0 left-0 h-1 bg-apple-accent transition-all duration-1000" style="width: ${percent}%"></div>` : ''}
+                        <i class="fa-solid ${item.icon} text-2xl text-apple-accent mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h5 class="text-sm font-semibold text-white mb-1">${item.name}</h5>
+                        ${voted ? `<p class="text-xs text-apple-subtext font-bold mt-1">${percent}% of votes</p>` : `<p class="text-xs text-apple-subtext">Click to vote</p>`}
+                    </button>
+                `;
+            }).join('');
+        };
+
+        const votePoll = (idx) => {
+            if (voted) return;
+            playSound(700, 0.1);
+            pollItems[idx].votes++;
+            voted = true;
+            renderPoll();
+            document.getElementById('pollThankYou').classList.remove('hidden');
+        };
+
+        // Modal Logic
+        const modal = document.getElementById('detailModal');
+        const openModal = (index) => {
+            playSound(800, 0.08);
+            const item = timelineData[index];
+            document.getElementById('modalYear').innerText = item.year;
+            document.getElementById('modalTagline').innerText = item.tagline;
+            document.getElementById('modalTitle').innerText = item.title;
+            document.getElementById('modalImg').src = item.img;
+            document.getElementById('modalDesc').innerText = item.desc;
+            document.getElementById('modalQuote').innerText = `"${item.quote}"`;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-95');
+            }, 10);
+        };
+
+        const closeModalHandler = () => {
+            playSound(400, 0.05);
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        };
+
+        document.getElementById('closeModal').addEventListener('click', closeModalHandler);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModalHandler();
+        });
+
+        // Quote Generator Logic
+        let currentQuoteIndex = 0;
+        document.getElementById('nextQuoteBtn').addEventListener('click', () => {
+            playSound(700, 0.05);
+            const quoteText = document.getElementById('quoteText');
+            const quoteContext = document.getElementById('quoteContext');
+
+            quoteText.style.opacity = '0';
+
+            setTimeout(() => {
+                currentQuoteIndex = (currentQuoteIndex + 1) % quotesData.length;
+                quoteText.innerText = `"${quotesData[currentQuoteIndex].text}"`;
+                quoteContext.innerText = quotesData[currentQuoteIndex].context;
+                quoteText.style.opacity = '1';
+            }, 200);
+        });
+
+        // Quiz Logic
+        let currentQuizIndex = 0;
+        let score = 0;
+        let selectedOption = null;
+
+        const loadQuizQuestion = () => {
+            const q = quizData[currentQuizIndex];
+            document.getElementById('questionNum').innerText = `Question ${currentQuizIndex + 1} of ${quizData.length}`;
+            document.getElementById('scoreDisplay').innerText = `Score: ${score}`;
+            document.getElementById('questionText').innerText = q.question;
+
+            const progress = ((currentQuizIndex) / quizData.length) * 100;
+            document.getElementById('quizProgressBar').style.width = `${progress}%`;
+
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            document.getElementById('feedbackBox').classList.add('hidden');
+            document.getElementById('nextQuestionBtn').classList.add('hidden');
+            selectedOption = null;
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'w-full p-4 rounded-xl glass-card text-left text-sm font-medium hover:bg-white/10 transition-all border border-white/10 flex items-center justify-between text-white';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-regular fa-circle text-apple-subtext"></i>`;
+                btn.onclick = () => selectQuizOption(idx, btn);
+                optionsContainer.appendChild(btn);
+            });
+        };
+
+        const selectQuizOption = (selectedIndex, btnElement) => {
+            if (selectedOption !== null) return;
+            selectedOption = selectedIndex;
+
+            const q = quizData[currentQuizIndex];
+            const feedbackBox = document.getElementById('feedbackBox');
+            const optionsButtons = document.getElementById('optionsContainer').children;
+
+            if (selectedIndex === q.answer) {
+                playSound(1000, 0.15, 'triangle');
+                score++;
+                document.getElementById('scoreDisplay').innerText = `Score: ${score}`;
+                btnElement.className = 'w-full p-4 rounded-xl bg-green-500/20 text-green-300 border border-green-500/50 text-left text-sm font-medium flex items-center justify-between';
+                btnElement.querySelector('i').className = 'fa-solid fa-circle-check text-green-400';
+
+                feedbackBox.className = 'p-4 rounded-xl mb-6 text-sm flex items-center gap-3 bg-green-500/10 text-green-400 border border-green-500/30';
+                feedbackBox.innerHTML = `<i class="fa-solid fa-check text-base"></i> <span><strong>Correct!</strong> ${q.explanation}</span>`;
+            } else {
+                playSound(200, 0.2, 'sawtooth');
+                btnElement.className = 'w-full p-4 rounded-xl bg-red-500/20 text-red-300 border border-red-500/50 text-left text-sm font-medium flex items-center justify-between';
+                btnElement.querySelector('i').className = 'fa-solid fa-circle-xmark text-red-400';
+
+                optionsButtons[q.answer].className = 'w-full p-4 rounded-xl bg-green-500/20 text-green-300 border border-green-500/50 text-left text-sm font-medium flex items-center justify-between';
+                optionsButtons[q.answer].querySelector('i').className = 'fa-solid fa-circle-check text-green-400';
+
+                feedbackBox.className = 'p-4 rounded-xl mb-6 text-sm flex items-center gap-3 bg-red-500/10 text-red-400 border border-red-500/30';
+                feedbackBox.innerHTML = `<i class="fa-solid fa-xmark text-base"></i> <span><strong>Incorrect.</strong> ${q.explanation}</span>`;
+            }
+
+            feedbackBox.classList.remove('hidden');
+            document.getElementById('nextQuestionBtn').classList.remove('hidden');
+        };
+
+        document.getElementById('nextQuestionBtn').addEventListener('click', () => {
+            playSound(600, 0.05);
+            currentQuizIndex++;
+            if (currentQuizIndex < quizData.length) {
+                loadQuizQuestion();
+            } else {
+                showQuizResults();
+            }
+        });
+
+        const showQuizResults = () => {
+            document.getElementById('quizProgressBar').style.width = '100%';
+            document.getElementById('quizQuestionView').classList.add('hidden');
+            document.getElementById('quizResultView').classList.remove('hidden');
+
+            document.getElementById('finalScoreText').innerText = `${score} / ${quizData.length}`;
+            
+            const feedback = document.getElementById('resultFeedback');
+            if (score === quizData.length) {
+                feedback.innerText = "Awesome score! You know Steve Jobs's story very well!";
+                confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+            } else if (score >= 3) {
+                feedback.innerText = "Good job! You have a nice knowledge of Apple history.";
+            } else {
+                feedback.innerText = "Keep learning! You can read the history above and try again.";
+            }
+        };
+
+        document.getElementById('restartQuizBtn').addEventListener('click', () => {
+            playSound(600, 0.05);
+            currentQuizIndex = 0;
+            score = 0;
+            document.getElementById('quizResultView').classList.add('hidden');
+            document.getElementById('quizQuestionView').classList.remove('hidden');
+            loadQuizQuestion();
+        });
+
+        // Initialize Application
+        window.onload = () => {
+            renderTimeline();
+            renderPoll();
+            loadQuizQuestion();
+        };
+    </script>
+</body>
+</html>
